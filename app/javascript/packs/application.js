@@ -30,7 +30,6 @@ window.Swal = Swal
 // Task1: select2
 $(document).on("turbolinks:load", function() {
   $('.js-example-basic-single').select2();
-
   $(".js-example-tags").select2({
     // select2 - 搜尋選項
     tags: true,
@@ -38,11 +37,7 @@ $(document).on("turbolinks:load", function() {
     tokenSeparators: [',', ' ']
   });
 
-
-
-
-
-  // SweetAlert 完成！
+  // Task2: SweetAlert
   $('.btn-primary').on('click',function(e){
     e.preventDefault();
     Swal.fire({
@@ -55,21 +50,36 @@ $(document).on("turbolinks:load", function() {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
-          title: 'Loading',
-          showConfirmButton: false,
-          text: '..........'
+          title: 'Loading..........',
+          showConfirmButton: false
         });
         document.querySelector('form').submit();
       }
     })
   });
 
+  // Task3: datetimepicker
+  $(function () {
+    $('#datetimepicker7').datetimepicker({
+      format: 'YYYY/MM/DD'
+    });
+    $('#datetimepicker8').datetimepicker({
+      useCurrent: false,
+      format: 'YYYY/MM/DD'
+    });
+    $("#datetimepicker7").on("change.datetimepicker", function (e) {
+        $('#datetimepicker8').datetimepicker('minDate', e.date);
+    });
+    $("#datetimepicker8").on("change.datetimepicker", function (e) {
+        $('#datetimepicker7').datetimepicker('maxDate', e.date);
+    });
+});
+
 
 });
 
 
-
-// "You will create a product!?"
-
 import 'tempusdominus-bootstrap-4'
 import 'tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css'
+import 'font-awesome/css/font-awesome.min.css'
+
