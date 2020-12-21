@@ -33,7 +33,8 @@
 
   <div class="form-group">
     <%= form.label :currency %>
-    <select name="product[currency]" class= "form-control">
+    <select name="product[currency]" class= "form-control js-example-basic-single" id="product_currency
+    ">
       <option value="NTD">NTD</option>
       <option value="USD">USD</option>
       <option value="HKD">HKD</option>
@@ -42,7 +43,7 @@
 
   <div class="form-group">
     <%= form.label :tag_list %>
-    <select name="product[tag_list][]" multiple= 'true' class= "form-control">
+    <select name="product[tag_list][]" class= "form-control js-example-tags" multiple= 'multiple' id="example">
       <option value="tag1">tag1</option>
       <option value="tag2">tag2</option>
       <option value="tag3">tag3</option>

@@ -17,3 +17,46 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
+import $ from 'jquery'
+
+import 'select2'
+import 'select2/dist/css/select2.min.css'
+
+import 'sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css'
+import Swal from 'sweetalert2'
+window.Swal = Swal
+
+// Task1: select2
+$(document).on("turbolinks:load", function() {
+  $('.js-example-basic-single').select2();
+
+  $(".js-example-tags").select2({
+    // select2 - 搜尋選項
+    tags: true,
+    // select2 - 自定義tags
+    tokenSeparators: [',', ' ']
+  });
+
+  $('.btn-primary').on('click',async function(e){ //also can use on submit
+    await(e.preventDefault()); //prevent submit 
+    await(
+      Swal.fire({
+      title: 'Are you sure?',
+      text: "You will create a product!?",
+      icon: 'warning',
+      confirmButtonColor: '#3085d6',
+      showCancelButton: true,
+      cancelButtonText: 'Cancel',
+      cancelButtonColor: '#d33',
+      })
+    );
+  });
+});
+
+
+
+
+
+import 'tempusdominus-bootstrap-4'
+import 'tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css'
