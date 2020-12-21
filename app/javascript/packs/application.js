@@ -38,25 +38,38 @@ $(document).on("turbolinks:load", function() {
     tokenSeparators: [',', ' ']
   });
 
-  $('.btn-primary').on('click',async function(e){ //also can use on submit
-    await(e.preventDefault()); //prevent submit 
-    await(
-      Swal.fire({
+
+
+
+
+  // SweetAlert 完成！
+  $('.btn-primary').on('click',function(e){
+    e.preventDefault();
+    Swal.fire({
       title: 'Are you sure?',
       text: "You will create a product!?",
       icon: 'warning',
-      confirmButtonColor: '#3085d6',
       showCancelButton: true,
-      cancelButtonText: 'Cancel',
+      confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      })
-    );
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'Loading',
+          showConfirmButton: false,
+          text: '..........'
+        });
+        document.querySelector('form').submit();
+      }
+    })
   });
+
+
 });
 
 
 
-
+// "You will create a product!?"
 
 import 'tempusdominus-bootstrap-4'
 import 'tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css'
